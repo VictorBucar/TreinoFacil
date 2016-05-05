@@ -1,0 +1,76 @@
+﻿@model IEnumerable<TreinoFacil.Models.Exercicio>
+
+@{
+    ViewBag.Title = "Início";
+}
+
+<h2>Início</h2>
+
+<p>
+    @Html.ActionLink("Criar novo", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Pesquise pelo nome: @Html.TextBox("Busca")
+        <input type="submit" value="Pesquisar" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Atividade.NomeAtividade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeExercicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Intensidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QntdRepeticao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tempo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Atividade.NomeAtividade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeExercicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Intensidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QntdRepeticao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tempo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ExercicioID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ExercicioID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ExercicioID })
+        </td>
+    </tr>
+}
+
+</table>

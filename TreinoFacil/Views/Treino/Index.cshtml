@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TreinoFacil.Models.Treino>
+
+@{
+    ViewBag.Title = "Treinos";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar novo", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Pesquise pelo nome: @Html.TextBox("Busca")
+        <input type="submit" value="Pesquisar" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Aluno.PrimeiroNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Professor.PrimeiroNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeTreino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoTreino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FrequenciaSemanal)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluno.PrimeiroNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Professor.PrimeiroNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeTreino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoTreino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrequenciaSemanal)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.TreinoID }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.TreinoID }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.TreinoID })
+            </td>
+        </tr>
+    }
+
+</table>

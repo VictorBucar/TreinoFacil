@@ -1,0 +1,82 @@
+﻿@model TreinoFacil.Models.Professor
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Professor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimeiroNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimeiroNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimoNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimoNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CREF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ProfessorID }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

@@ -1,0 +1,90 @@
+﻿@model TreinoFacil.Models.Professor
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Rxcluir</h2>
+
+<h3>Tem certeza que deseja excluir isto?</h3>
+<div>
+    <h4>Professor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimeiroNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimeiroNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimoNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimoNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CREF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CREF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>
+

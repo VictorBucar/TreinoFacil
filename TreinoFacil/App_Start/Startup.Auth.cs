@@ -54,15 +54,15 @@ namespace TreinoFacil
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "221175614930523",
+               appSecret: "d89984243f386546e4f65ca87667acb4");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "932528907472-au7p7iok5ck7pm3k6lide4d84pijrdjv.apps.googleusercontent.com",
+                ClientSecret = "Mx3L6X8ZiOhQLmPK2y4nvzsU"
+            });
         }
     }
 }

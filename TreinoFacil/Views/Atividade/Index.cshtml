@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TreinoFacil.Models.Atividade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar novo", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Pesquise pelo nome: @Html.TextBox("Busca")
+        <input type="submit" value="Pesquisar" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeAtividade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FrequenciaSemanal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TempoTotal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeAtividade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrequenciaSemanal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TempoTotal)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.AtividadeID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.AtividadeID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.AtividadeID })
+        </td>
+    </tr>
+}
+
+</table>

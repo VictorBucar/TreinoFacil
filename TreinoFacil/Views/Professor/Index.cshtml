@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TreinoFacil.Models.Professor>
+
+@{
+    ViewBag.Title = "Início";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar novo", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Pesquise pelo nome: @Html.TextBox("Busca")
+        <input type="submit" value="Pesquisar" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimeiroNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UltimoNome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Senha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CREF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimeiroNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UltimoNome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Senha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CREF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formacao)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.ProfessorID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.ProfessorID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id = item.ProfessorID })
+        </td>
+    </tr>
+}
+
+</table>

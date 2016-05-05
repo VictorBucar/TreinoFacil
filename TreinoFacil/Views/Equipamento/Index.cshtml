@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TreinoFacil.Models.Equipamento>
+
+@{
+    ViewBag.Title = "Início";
+}
+
+<h2>Equipamentos</h2>
+
+<p>
+    @Html.ActionLink("Criar novo", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Pesquise pelo nome: @Html.TextBox("Busca")
+        <input type="submit" value="Pesquisar" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeEquipamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusculoAlvo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeEquipamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusculoAlvo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.EquipamentoID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.EquipamentoID }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.EquipamentoID })
+        </td>
+    </tr>
+}
+
+</table>
