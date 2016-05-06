@@ -5,16 +5,39 @@ namespace TreinoFacil.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TreinoFacil.Models.ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+        }
+
+        bool AddUserAndRole(TreinoFacil.Models.ApplicationDbContext context)
+        {
+            IdentityResult ir;
+            var rm = new RoleManager<IdentityRole>
+                (new RoleStore<IdentityRole>(context));
+            ir = rm.Create(new IdentityRole("Editar"));
+            var um = new UserManager<ApplicationUser>(
+                new UserStore<ApplicationUser>(context));
+            var user = new ApplicationUser()
+            {
+                UserName = "victorbucar@treinofacil.com",
+            };
+            ir = um.Create(user, "Senha-1");
+            if (ir.Succeeded == false)
+                return ir.Succeeded;
+            ir = um.AddToRole(user.Id, "Editar");
+            return ir.Succeeded;
         }
 
         protected override void Seed(TreinoFacil.Models.ApplicationDbContext context)
         {
+
+            AddUserAndRole(context);
 
             context.Alunoes.Add(new Aluno { PrimeiroNome = "Carson", UltimoNome = "Alexander", Email = "carson@gmail.com", Login = "CarsonAle", Senha = "123456", Endereco = "Nova colina - Sobradinho", DataInicioTreino = DateTime.Parse("2016-03-18"), DataFimTreino = DateTime.Parse("2016-06-18") });
             context.SaveChanges();

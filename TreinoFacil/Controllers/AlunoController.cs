@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TreinoFacil.Models;
+using PagedList;
 
 namespace TreinoFacil.Controllers
 {
@@ -15,17 +16,53 @@ namespace TreinoFacil.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Aluno
-        public ViewResult Index(string Busca)
+        public ViewResult Index(string sortOrder, string currentFilter, string Busca, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            if (Busca != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                Busca = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = Busca;
+
+
             var aluno = from a in db.Alunoes
                         select a;
+            
 
             if (!String.IsNullOrEmpty(Busca))
             {
                 aluno = aluno.Where(s => s.UltimoNome.Contains(Busca)
                                        || s.PrimeiroNome.Contains(Busca));
             }
-            return View(aluno.ToList());
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    aluno = aluno.OrderByDescending(s => s.UltimoNome);
+                    break;
+                case "Date":
+                    aluno = aluno.OrderBy(s => s.DataInicioTreino);
+                    break;
+                case "date_desc":
+                    aluno = aluno.OrderByDescending(s => s.DataInicioTreino);
+                    break;
+                default:
+                    aluno = aluno.OrderBy(s => s.UltimoNome);
+                    break;
+            }
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(aluno.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Aluno/Details/5
@@ -44,6 +81,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Aluno/Create
+        [Authorize(Roles = "Editar")]
         public ActionResult Create()
         {
             return View();
@@ -54,6 +92,8 @@ namespace TreinoFacil.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = "Editar")]
         public ActionResult Create([Bind(Include = "AlunoID,PrimeiroNome,UltimoNome,Email,Login,Senha,Endereco,DataInicioTreino,DataFimTreino")] Aluno aluno)
         {
             if (ModelState.IsValid)
@@ -67,6 +107,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Aluno/Edit/5
+        [Authorize(Roles = "Editar")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,6 +127,8 @@ namespace TreinoFacil.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = "Editar")]
         public ActionResult Edit([Bind(Include = "AlunoID,PrimeiroNome,UltimoNome,Email,Login,Senha,Endereco,DataInicioTreino,DataFimTreino")] Aluno aluno)
         {
             if (ModelState.IsValid)
@@ -98,6 +141,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Aluno/Delete/5
+        [Authorize(Roles = "Editar")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,6 +159,7 @@ namespace TreinoFacil.Controllers
         // POST: Aluno/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Editar")]
         public ActionResult DeleteConfirmed(int id)
         {
             Aluno aluno = db.Alunoes.Find(id);

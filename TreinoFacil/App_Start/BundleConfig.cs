@@ -27,6 +27,8 @@ namespace TreinoFacil
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/zocial.css"));
+
+           
         }
     }
 }

@@ -43,6 +43,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Equipamento/Create
+        [Authorize(Roles = "Editar")]
         public ActionResult Create()
         {
             return View();
@@ -53,6 +54,8 @@ namespace TreinoFacil.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = "Editar")]
         public ActionResult Create([Bind(Include = "EquipamentoID,NomeEquipamento,MusculoAlvo")] Equipamento equipamento)
         {
             if (ModelState.IsValid)
@@ -66,6 +69,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Equipamento/Edit/5
+        [Authorize(Roles = "Editar")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,6 +89,8 @@ namespace TreinoFacil.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = "Editar")]
         public ActionResult Edit([Bind(Include = "EquipamentoID,NomeEquipamento,MusculoAlvo")] Equipamento equipamento)
         {
             if (ModelState.IsValid)
@@ -97,6 +103,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Equipamento/Delete/5
+        [Authorize(Roles = "Editar")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,6 +121,8 @@ namespace TreinoFacil.Controllers
         // POST: Equipamento/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+
+        [Authorize(Roles = "Editar")]
         public ActionResult DeleteConfirmed(int id)
         {
             Equipamento equipamento = db.Equipamentoes.Find(id);
