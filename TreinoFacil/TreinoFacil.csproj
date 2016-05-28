@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201605051719588_InitialCreate.Designer.cs">
       <DependentUpon>201605051719588_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605281715203_newUpdates.cs" />
+    <Compile Include="Migrations\201605281715203_newUpdates.Designer.cs">
+      <DependentUpon>201605281715203_newUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Aluno.cs" />
@@ -316,6 +320,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605051719588_InitialCreate.resx">
       <DependentUpon>201605051719588_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281715203_newUpdates.resx">
+      <DependentUpon>201605281715203_newUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
