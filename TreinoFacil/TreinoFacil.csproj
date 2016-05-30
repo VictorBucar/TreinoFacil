@@ -195,6 +195,10 @@
     <Compile Include="Migrations\201605281715203_newUpdates.Designer.cs">
       <DependentUpon>201605281715203_newUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605292302129_updateRegistro.cs" />
+    <Compile Include="Migrations\201605292302129_updateRegistro.Designer.cs">
+      <DependentUpon>201605292302129_updateRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Aluno.cs" />
@@ -220,9 +224,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagens\img3.jpg" />
-    <Content Include="Imagens\img4.jpg" />
-    <Content Include="Imagens\img7.jpg" />
+    <Content Include="Imagens\rsz_img3.jpg" />
+    <Content Include="Imagens\rsz_img4.jpg" />
+    <Content Include="Imagens\rsz_img7.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\treinofacil - FTP.pubxml" />
@@ -305,6 +309,8 @@
     <Content Include="Views\Exercicio\Details.cshtml" />
     <Content Include="Views\Exercicio\Edit.cshtml" />
     <Content Include="Views\Exercicio\Index.cshtml" />
+    <Content Include="Views\Account\RegisterProf.cshtml" />
+    <Content Include="Views\Home\Respon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605281715203_newUpdates.resx">
       <DependentUpon>201605281715203_newUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605292302129_updateRegistro.resx">
+      <DependentUpon>201605292302129_updateRegistro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -20,7 +20,7 @@ namespace TreinoFacil.Migrations
             IdentityResult ir;
             var rm = new RoleManager<IdentityRole>
                 (new RoleStore<IdentityRole>(context));
-            ir = rm.Create(new IdentityRole("Editar"));
+            ir = rm.Create(new IdentityRole("Admin"));
             var um = new UserManager<ApplicationUser>(
                 new UserStore<ApplicationUser>(context));
             var user = new ApplicationUser()
@@ -30,14 +30,33 @@ namespace TreinoFacil.Migrations
             ir = um.Create(user, "Senha-1");
             if (ir.Succeeded == false)
                 return ir.Succeeded;
-            ir = um.AddToRole(user.Id, "Editar");
+            ir = um.AddToRole(user.Id, "Admin");
             return ir.Succeeded;
+
+
+        }
+        void AddRoleAluno(TreinoFacil.Models.ApplicationDbContext context)
+        {
+            var roleManager = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+                (new RoleStore<IdentityRole>(new ApplicationDbContext()));
+
+
+            if (!roleManager.RoleExists("Aluno"))
+            {
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Aluno";
+                roleManager.Create(role);
+
+            }
         }
 
-        protected override void Seed(TreinoFacil.Models.ApplicationDbContext context)
+
+
+    protected override void Seed(TreinoFacil.Models.ApplicationDbContext context)
         {
 
             AddUserAndRole(context);
+            AddRoleAluno(context);
 
             context.Alunoes.Add(new Aluno { PrimeiroNome = "Carson", UltimoNome = "Alexander", Email = "carson@gmail.com", Login = "CarsonAle", Senha = "123456", Endereco = "Nova colina - Sobradinho", DataInicioTreino = DateTime.Parse("2016-03-18"), DataFimTreino = DateTime.Parse("2016-06-18") });
             context.SaveChanges();

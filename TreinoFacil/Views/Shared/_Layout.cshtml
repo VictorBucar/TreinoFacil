@@ -25,12 +25,46 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Contatos", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Alunos", "Index", "Aluno")</li>
-                    <li>@Html.ActionLink("Professores", "Index", "Professor")</li>
-                    <li>@Html.ActionLink("Treinos", "Index", "Treino")</li>
-                    <li>@Html.ActionLink("Atividades", "Index", "Atividade")</li>
-                    <li>@Html.ActionLink("Equipamentos", "Index", "Equipamento")</li>
-                    <li>@Html.ActionLink("Exercicios", "Index", "Exercicio")</li>
+
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li>@Html.ActionLink("Alunos", "Index", "Aluno")</li>
+                                <li>@Html.ActionLink("Professores", "Index", "Professor")</li>
+                                <li>@Html.ActionLink("Treinos", "Index", "Treino")</li>
+                                <li>@Html.ActionLink("Atividades", "Index", "Atividade")</li>
+                                <li>@Html.ActionLink("Equipamentos", "Index", "Equipamento")</li>
+                                <li>@Html.ActionLink("Exercicios", "Index", "Exercicio")</li>
+                             }
+                         }
+                      }
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Aluno"))
+                            {
+                                
+                                <li>@Html.ActionLink("Professores", "Index", "Professor")</li>
+                                <li>@Html.ActionLink("Treinos", "Index", "Treino")</li>
+                               
+                            }
+                        }
+                    }
+                    @{
+                        if (Request.IsAuthenticated)
+                        {
+                            if (User.IsInRole("Prof"))
+                            {
+
+                                <li>@Html.ActionLink("Alunos", "Index", "Aluno")</li>
+                                <li>@Html.ActionLink("Treinos", "Index", "Treino")</li>
+
+                            }
+                        }
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

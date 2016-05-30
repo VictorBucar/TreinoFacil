@@ -43,7 +43,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Exercicio/Create
-        [Authorize(Roles = "Editar")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.AtividadeID = new SelectList(db.Atividades, "AtividadeID", "NomeAtividade");
@@ -56,7 +56,7 @@ namespace TreinoFacil.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        [Authorize(Roles = "Editar")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ExercicioID,NomeExercicio,Categoria,Intensidade,Carga,QntdRepeticao,Tempo,AtividadeID")] Exercicio exercicio)
         {
             if (ModelState.IsValid)
@@ -71,7 +71,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Exercicio/Edit/5
-        [Authorize(Roles = "Editar")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -93,7 +93,7 @@ namespace TreinoFacil.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        [Authorize(Roles = "Editar")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ExercicioID,NomeExercicio,Categoria,Intensidade,Carga,QntdRepeticao,Tempo,AtividadeID")] Exercicio exercicio)
         {
             if (ModelState.IsValid)
@@ -107,7 +107,7 @@ namespace TreinoFacil.Controllers
         }
 
         // GET: Exercicio/Delete/5
-        [Authorize(Roles = "Editar")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -126,7 +126,7 @@ namespace TreinoFacil.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
 
-        [Authorize(Roles = "Editar")]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Exercicio exercicio = db.Exercicios.Find(id);
