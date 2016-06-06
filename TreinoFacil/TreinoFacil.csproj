@@ -224,6 +224,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagens\rsz_2gym2.jpg" />
     <Content Include="Imagens\rsz_img3.jpg" />
     <Content Include="Imagens\rsz_img4.jpg" />
     <Content Include="Imagens\rsz_img7.jpg" />
@@ -245,7 +246,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -310,7 +313,6 @@
     <Content Include="Views\Exercicio\Edit.cshtml" />
     <Content Include="Views\Exercicio\Index.cshtml" />
     <Content Include="Views\Account\RegisterProf.cshtml" />
-    <Content Include="Views\Home\Respon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

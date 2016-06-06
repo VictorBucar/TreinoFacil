@@ -173,6 +173,7 @@ namespace TreinoFacil.Controllers
             return View(model);
         }
 
+
         //
         // GET: /Account/RegisterProf
         [AllowAnonymous]
@@ -211,6 +212,7 @@ namespace TreinoFacil.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
 
         //
         // GET: /Account/ConfirmEmail

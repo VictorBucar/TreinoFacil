@@ -3,68 +3,73 @@
 }
 
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img  src="~/Imagens/rsz_img4.jpg" alt="Levantamento de peso" style="width: 100%; s ">
-            <div class="carousel-caption">
-                <h3>Cadastre-se</h3>
-                <p>Venha fazer parte do TreinoFácil você vai se surpreeder.</p>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicadores -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper para slides -->
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Imagens/rsz_img4.jpg" alt="Levantamento de peso" style="width: 100%;  ">
+                <div class="carousel-caption">
+                    <h3>Cadastre-se</h3>
+                    <p>Venha fazer parte do TreinoFácil você vai se surpreeder.</p>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <img src="~/Imagens/rsz_img7.jpg" alt="Academia" style="width: 100%; ">
+                <div class="carousel-caption">
+                    <h3>Fique em forma</h3>
+                    <p>Treinos personalizados para você nunca ficar parado.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="~/Imagens/rsz_img3.jpg" alt="Mulher na academia" style="width: 100%;">
+                <div class="carousel-caption">
+                    <h3>Praticidade</h3>
+                    <p>Crie e gerencie seus treinos como e onde quiser.</p>
+                </div>
             </div>
         </div>
 
-        <div class="item">
-            <img  src="~/Imagens/rsz_img7.jpg" alt="Academia" style="width: 100%; ">
-            <div class="carousel-caption">
-                <h3>Fique em forma</h3>
-                <p>Treinos personalizados para você nunca ficar parado.</p>
-            </div>
+
+        <!-- controles esquerda - direita -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">anterior</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">proximo</span>
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Comece agora</h2>
+            <p>
+                Cadastre-se e conheça o Treino Fácil, e comece hoje mesmo a usufruir das facilidades, é rápido e fácil.
+            </p>
+            <p><a class="btn btn-info" href="https://localhost:44364/Account/Register">Veja mais &raquo;</a></p>
         </div>
-
-        <div class="item">
-            <img  src="~/Imagens/rsz_img3.jpg" alt="Mulher na academia" style="width: 100%;">
-            <div class="carousel-caption">
-                <h3>Praticidade</h3>
-                <p>Crie e gerencie seus treinos como e onde quiser.</p>
-            </div>
+        <div class="col-md-4">
+            <h2>Acesse de onde estiver e quando quiser</h2>
+            <p>Seja na acadêmia, na rua, em casa ou no trabalho, o Treino Fácil foi desenvolvido para ser acessado pelo desktop, tablet, ou celular.</p>
+            <p><a class="btn btn-info" href="https://localhost:44364/Account/Login">Veja mais &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <h2>Melhore seu treino</h2>
+            <p>Crie um treino personalizado para atingir seu objetivo mais facilmente, encontre um professor e receba orientações.</p>
+            <p><a class="btn btn-info" href="https://localhost:44364/Account/Login">Veja mais &raquo;</a></p>
         </div>
     </div>
-
-    <!-- controles esquerda - direita -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">anterior</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">proximo</span>
-    </a>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Comece agora</h2>
-        <p>
-            Cadastre-se e conheça o Treino Fácil, e comece hoje mesmo a usufruir das facilidades, é rápido e fácil.
-        </p>
-        <p><a class="btn btn-info" href="https://treinofacil.azurewebsites.net/Account/Register">Veja mais &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Acesse de onde estiver e quando quiser</h2>
-        <p>Seja na acadêmia, na rua, em casa ou no trabalho, o Treino Fácil foi desenvolvido para ser acessado pelo desktop, tablet, ou celular.</p>
-        <p><a class="btn btn-info" href="https://treinofacil.azurewebsites.net/Home/Respon">Veja mais &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-        <h2>Melhore seu treino</h2>
-        <p>Crie um treino personalizado para atingir seu objetivo mais facilmente, encontre um professor e receba orientações.</p>
-        <p><a class="btn btn-info" href="https://treinofacil.azurewebsites.net/Account/Login">Veja mais &raquo;</a></p>
-    </div>
-</div>

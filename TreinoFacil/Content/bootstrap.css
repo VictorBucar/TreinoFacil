@@ -1088,8 +1088,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555555;
+  color: #000000;
   background-color: #ffffff;
+  background-image:url('/Imagens/rsz_2gym2.jpg');
+  background-repeat: no-repeat;
 }
 input,
 button,
@@ -1125,15 +1127,8 @@ img {
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img,
-.carousel-inner > .item > img{
-    height:1000px;
-    width:800px;
-}
-.carousel-inner > .item > a > img {
-      height:1000px;
-    width:800px;
- 
-}
+
+
 .img-rounded {
   border-radius: 6px;
 }
@@ -6245,13 +6240,17 @@ button.close {
   bottom: -10px;
 }
 .carousel {
-  position: relative;
+  position:relative;
+  width: 100% ;
 }
+
+
+
 .carousel-inner {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-height:750px;
+  max-height:750px !important;
 }
 .carousel-inner > .item {
   display: none;
@@ -6260,8 +6259,9 @@ button.close {
   -o-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
 }
+
 .carousel-inner > .item > img{
-    width:1100px;
+    width:100%;
     height:auto;
 }
 .carousel-inner > .item > a > img {
